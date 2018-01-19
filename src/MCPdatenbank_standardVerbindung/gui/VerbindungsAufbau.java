@@ -9,6 +9,7 @@ import MCPdatenbank_standardVerbindung.datenbank.CConInfo;
 import MCPdatenbank_standardVerbindung.datenbank.CDatenbankverbinder;
 import MCPdatenbank_standardVerbindung.datenbank.CXmlLeser;
 import MCPdatenbank_standardVerbindung.starter.IConnected;
+import com.sun.jndi.ldap.Connection;
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -52,6 +53,7 @@ public class VerbindungsAufbau {
           Prüfen ob  mcpXml vorhanden
           */
           File mcpXML = new File(verzeichnis.getAbsolutePath() + "/mcp.xml");
+      
           
           if(mcpXML.exists() && mcpXML.canRead())
           {

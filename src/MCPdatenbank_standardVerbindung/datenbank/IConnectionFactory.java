@@ -5,16 +5,15 @@
  */
 package MCPdatenbank_standardVerbindung.datenbank;
 
+import java.sql.Connection;
 import java.sql.Statement;
 
 /**
  *
  * @author marian
  */
-public interface IDatabase {
-
-    Statement getQuery();
-
-    boolean isConnectedDb();
-    
+public interface IConnectionFactory 
+{
+    public Connection GetConnection();
+    public Statement GetStatement();
 }

@@ -15,18 +15,21 @@ import java.sql.*;
 /*
     Stattische variablen für datenbankzugriff
 */
-public class CDatenbankverbinder implements IDatabase {
+public class CDatenbankverbinder implements IConnectionFactory {
     public static CDatenbankverbinder con = null;
     
     public CConInfo info = null;
     private Connection connectiondb = null;    //[ToDo] zwei verbindungen nonsense. verbindungsaufbau grundsätzlich überarbeiten
     private Connection connectionServer = null;
-    private boolean ersteVerbindung = false;
+    private boolean ersteVerbindung = false; 
     
-    
+     @Override
+    public Connection GetConnection() {
+        return connectiondb;
+    }
     
     @Override
-    public Statement getQuery()
+    public Statement GetStatement()
     {
         Statement s = null;
         if(this.isConnectedDb())
@@ -43,7 +46,7 @@ public class CDatenbankverbinder implements IDatabase {
         return s;
     }
     
-    @Override
+    
     public boolean isConnectedDb()
     {
         boolean result = false;
@@ -192,4 +195,5 @@ public class CDatenbankverbinder implements IDatabase {
        }
        return result; 
     }        
+   
 }
