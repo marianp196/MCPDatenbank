@@ -13,7 +13,7 @@ import java.sql.Statement;
  *
  * @author marian
  */
-public interface IConnectionFactory 
+public interface IDatabase 
 {
     public Connection GetConnection() throws Exception;
     

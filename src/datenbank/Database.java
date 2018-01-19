@@ -17,9 +17,9 @@ import java.util.logging.Logger;
 /*
     Stattische variablen für datenbankzugriff
 */
-public class ConnectionFactory implements IConnectionFactory 
+public class Database implements IDatabase 
 {   
-    public ConnectionFactory(ConnectionInfo verbindungsinformationen) throws Exception
+    public Database(ConnectionInfo verbindungsinformationen) throws Exception
     {
         if(verbindungsinformationen == null)
             throw new NullPointerException("connectionInfo");
