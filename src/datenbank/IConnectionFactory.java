@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MCPdatenbank_standardVerbindung.datenbank;
+
+package datenbank;
 
 import java.sql.Connection;
 import java.sql.Statement;

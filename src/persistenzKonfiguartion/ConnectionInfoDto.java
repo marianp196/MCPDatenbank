@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MCPdatenbank_standardVerbindung.gui;
+package persistenzKonfiguartion;
 
 /**
  *
  * @author marian
  */
-public interface IPrinter
-{
-    public void Print(String text);
+public class ConnectionInfoDto {
+    public String Url;
+    public String Benutzer;
+    public String Passwort;
+    public String Datenbanktreiber;   
 }

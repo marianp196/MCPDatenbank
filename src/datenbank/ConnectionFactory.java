@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MCPdatenbank_standardVerbindung.datenbank;
 
-import MCPdatenbank_standardVerbindung.datenbank.CConInfo;
+package datenbank;
+
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 */
 public class ConnectionFactory implements IConnectionFactory 
 {   
-    public ConnectionFactory(CConInfo verbindungsinformationen) throws Exception
+    public ConnectionFactory(CConnectionInfo verbindungsinformationen) throws Exception
     {
         if(connectionInfo == null)
             throw new NullPointerException("connectionInfo");
@@ -31,8 +31,8 @@ public class ConnectionFactory implements IConnectionFactory
     @Override
     public Connection GetConnection() throws SQLException 
     {
-        return getConnection(connectionInfo.getUrl(), 
-                connectionInfo.getBenutze(), connectionInfo.getPasswort());
+        return getConnection(connectionInfo.GetUrl(), 
+                connectionInfo.GetBenutzer(), connectionInfo.GetPasswort());
     }
     
     @Override
@@ -47,7 +47,7 @@ public class ConnectionFactory implements IConnectionFactory
     {
           
         try {
-            Class.forName(connectionInfo.getDatenbanktreiber());
+            Class.forName(connectionInfo.GetDatenbanktreiber());
         } catch (ClassNotFoundException ex) {
             throw new Exception("Treiber kann nicht geladen werden \n" + ex.getMessage());
         }
@@ -64,5 +64,5 @@ public class ConnectionFactory implements IConnectionFactory
     } 
     
        
-    private CConInfo connectionInfo;
+    private CConnectionInfo connectionInfo;
 }
