@@ -18,7 +18,7 @@ import javax.swing.*;
 public class GMcpXmlErsteller extends JFrame {
     
     private File zielverezeichnis=null;
-    private CVerbindungFactory fabrik_parent;
+    private VerbindungsAufbau fabrik_parent;
     
     
     private javax.swing.Box.Filler filler1;
@@ -35,7 +35,7 @@ public class GMcpXmlErsteller extends JFrame {
     private javax.swing.JTextField txtDatenbank;
     private javax.swing.JTextField txtBenutzer;
     
-    public GMcpXmlErsteller(CVerbindungFactory parent) 
+    public GMcpXmlErsteller(VerbindungsAufbau parent) 
     {
         this.fabrik_parent = parent;
         this.zielverezeichnis = parent.getVerzeichnis();

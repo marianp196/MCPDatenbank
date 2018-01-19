@@ -8,20 +8,21 @@ package MCPdatenbank_standardVerbindung.gui;
 import MCPdatenbank_standardVerbindung.datenbank.CConInfo;
 import MCPdatenbank_standardVerbindung.datenbank.CDatenbankverbinder;
 import MCPdatenbank_standardVerbindung.datenbank.CXmlLeser;
+import MCPdatenbank_standardVerbindung.starter.IConnected;
 import java.io.File;
 import javax.swing.JOptionPane;
-import MCPdatenbank_standardVerbindung.starter.Starter;
 
 /**ile 
  *
  * @author marian
  */
-public class CVerbindungFactory {
+public class VerbindungsAufbau {
     
     private File verzeichnis;
-    private Starter parent;
+    private IConnected parent;
+    private IPrinter printer;
     
-    public CVerbindungFactory(File verzeichnis, Starter parent)
+    public VerbindungsAufbau(File verzeichnis, IConnected parent, IPrinter printer)
     {
         if(verzeichnis==null)
         {
@@ -30,6 +31,7 @@ public class CVerbindungFactory {
         
         this.verzeichnis = verzeichnis;
         this.parent = parent;
+        this.printer = printer;
     }        
     
     public File getVerzeichnis()
@@ -62,7 +64,7 @@ public class CVerbindungFactory {
               }    
           } else
           {
-              JOptionPane.showMessageDialog(null, "Keine mcp.xml vorhanden", "Fehler!", JOptionPane.OK_CANCEL_OPTION);
+              printer.Print("Keine mcp.xml vorhanden");
               XMLkonfig();
           }    
           
@@ -89,23 +91,24 @@ public class CVerbindungFactory {
            
            if(info == null)
            {
-               JOptionPane.showMessageDialog(null, "mcp.xml hat Syntaxfehler", "Fehler!", JOptionPane.OK_CANCEL_OPTION);
+                printer.Print("mcp.xml hat Syntaxfehler");
                 return false;
            }    
            
            CDatenbankverbinder dcon = new CDatenbankverbinder(info);
            if(!dcon.verbindungAufbauenServer())
            {
-              JOptionPane.showMessageDialog(null, "Server nicht erreichbar!", "Fehler!", JOptionPane.OK_CANCEL_OPTION); 
+               printer.Print("Server nicht erreichbar!"); 
               
                return false;
            } 
            
            if(!dcon.isDatenbankVorhanden())
            {             
-                JOptionPane.showMessageDialog(null, "Datenbank kann nicht erstellt werden!", "Fehler!", JOptionPane.OK_CANCEL_OPTION); 
+                printer.Print("Datenbank kann nicht erstellt werden!"); 
                 return false;    
            }    
+           
            
            return dcon.verbindungAufbauenDb();
       

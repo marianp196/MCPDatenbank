@@ -21,7 +21,6 @@ public class CDatenbankverbinder implements IDatabase {
     public CConInfo info = null;
     private Connection connectiondb = null;    //[ToDo] zwei verbindungen nonsense. verbindungsaufbau grundsätzlich überarbeiten
     private Connection connectionServer = null;
-    private boolean etabliert = true;
     private boolean ersteVerbindung = false;
     
     
@@ -111,34 +110,7 @@ public class CDatenbankverbinder implements IDatabase {
         
         return gefunden;
     }        
-    
-    public boolean datenbankErstellen()
-    {
-        if(!this.isConnectedServer() || this.isDatenbankVorhanden())
-        {
-            return false;
-        }  
-        try
-        {    
-            Statement s;
-            s = connectionServer.createStatement();
-            
-            String sql = "CREATE DATABASE :datenbank";
-            
-            sql = sql.replace(":datenbank", info.getDatenbank());
-            
-            s.execute(sql);
-            
-            ersteVerbindung = true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }   
-        
-        return true;
-    }  
-
+   
     public boolean isErsteVerbindung() {
         return ersteVerbindung;
     }
@@ -170,7 +142,6 @@ public class CDatenbankverbinder implements IDatabase {
         }catch(Exception e)
         {
             System.out.println("Datenbanktreiber nicht geladen : " +  info.getDatenbanktreiber());
-            etabliert = false;
         }    
     }  
     
@@ -186,7 +157,6 @@ public class CDatenbankverbinder implements IDatabase {
       {
           System.out.println("Connection kann nicht hergestellt werden:");
           System.out.println(e.getMessage());
-          etabliert = false;
       }    
       
       return c;
