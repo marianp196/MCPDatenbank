@@ -15,7 +15,7 @@ import java.sql.*;
 /*
     Stattische variablen für datenbankzugriff
 */
-public class CDatenbankverbinder {
+public class CDatenbankverbinder implements IDatabase {
     public static CDatenbankverbinder con = null;
     
     public CConInfo info = null;
@@ -26,6 +26,7 @@ public class CDatenbankverbinder {
     
     
     
+    @Override
     public Statement getQuery()
     {
         Statement s = null;
@@ -43,6 +44,7 @@ public class CDatenbankverbinder {
         return s;
     }
     
+    @Override
     public boolean isConnectedDb()
     {
         boolean result = false;

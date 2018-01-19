@@ -83,9 +83,7 @@ public class CVerbindungFactory {
     }        
     
     private  boolean ladeVerb(File xml)
-    {
-      
-      
+    {     
            CXmlLeser leser = new CXmlLeser(xml);
            CConInfo info = leser.leseAusXML();
            
@@ -104,12 +102,9 @@ public class CVerbindungFactory {
            } 
            
            if(!dcon.isDatenbankVorhanden())
-           {
-             if(!dcon.datenbankErstellen())
-             {
+           {             
                 JOptionPane.showMessageDialog(null, "Datenbank kann nicht erstellt werden!", "Fehler!", JOptionPane.OK_CANCEL_OPTION); 
-                return false;
-             }    
+                return false;    
            }    
            
            return dcon.verbindungAufbauenDb();
