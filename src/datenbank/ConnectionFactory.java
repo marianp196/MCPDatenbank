@@ -19,9 +19,9 @@ import java.util.logging.Logger;
 */
 public class ConnectionFactory implements IConnectionFactory 
 {   
-    public ConnectionFactory(CConnectionInfo verbindungsinformationen) throws Exception
+    public ConnectionFactory(ConnectionInfo verbindungsinformationen) throws Exception
     {
-        if(connectionInfo == null)
+        if(verbindungsinformationen == null)
             throw new NullPointerException("connectionInfo");
         
         this.connectionInfo = verbindungsinformationen;
@@ -64,5 +64,5 @@ public class ConnectionFactory implements IConnectionFactory
     } 
     
        
-    private CConnectionInfo connectionInfo;
+    private ConnectionInfo connectionInfo;
 }

@@ -5,7 +5,7 @@
  */
 package persistenzKonfiguartion;
 
-import datenbank.CConnectionInfo;
+import datenbank.ConnectionInfo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.FileSystemException;
@@ -26,12 +26,12 @@ public class XmlReader {
         checkFile();
     }
     
-    public CConnectionInfo GetInfo() throws Exception
+    public ConnectionInfo GetInfo() throws Exception
     {
         ConnectionInfoDto conInfo = JAXB.<ConnectionInfoDto>unmarshal(file, ConnectionInfoDto.class);
         if(conInfo == null)
             throw new Exception("Konnte nicht parsen.");
-        return new CConnectionInfo(conInfo.Url, conInfo.Benutzer, 
+        return new ConnectionInfo(conInfo.Url, conInfo.Benutzer, 
                 getPasswortKlartext(conInfo.Passwort), conInfo.Datenbanktreiber);
     }
     

@@ -16,11 +16,11 @@ import org.jdom2.input.*;
  *
  * @author marian
  */
-public class CConnectionInfo {
+public class ConnectionInfo {
     public static String DRIVERMYSQL = "com.mysql.jdbc.Driver";
     public static String[] SQLTREIBER = {DRIVERMYSQL};
   
-    public CConnectionInfo(String url, String benutzer, String passwort, String datenbanktreiber)
+    public ConnectionInfo(String url, String benutzer, String passwort, String datenbanktreiber)
     {
         this.url = url;
         this.benutzer = benutzer;

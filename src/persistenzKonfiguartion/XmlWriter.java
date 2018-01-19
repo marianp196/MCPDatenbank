@@ -5,7 +5,7 @@
  */
 package persistenzKonfiguartion;
 
-import datenbank.CConnectionInfo;
+import datenbank.ConnectionInfo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.FileSystemException;
@@ -27,14 +27,14 @@ public class XmlWriter {
         checkFile();
     }
     
-    public void WriteInfo(CConnectionInfo info) throws Exception
+    public void WriteInfo(ConnectionInfo info) throws Exception
     {
         ConnectionInfoDto connectionInfoDto = getConnectionInfoDTo(info);
         JAXB.marshal(connectionInfoDto, file);
     }
     
     
-    private ConnectionInfoDto getConnectionInfoDTo(CConnectionInfo info) {
+    private ConnectionInfoDto getConnectionInfoDTo(ConnectionInfo info) {
         ConnectionInfoDto result = new ConnectionInfoDto();
         result.Benutzer = info.GetBenutzer();
         result.Datenbanktreiber = info.GetDatenbanktreiber();
