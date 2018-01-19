@@ -6,7 +6,7 @@
 package MCPdatenbank_standardVerbindung.gui;
 
 import MCPdatenbank_standardVerbindung.datenbank.CConInfo;
-import MCPdatenbank_standardVerbindung.datenbank.CDatenbankverbinder;
+import MCPdatenbank_standardVerbindung.datenbank.ConnectionFactory;
 import MCPdatenbank_standardVerbindung.datenbank.CXmlLeser;
 import MCPdatenbank_standardVerbindung.starter.IConnected;
 import com.sun.jndi.ldap.Connection;
@@ -97,7 +97,7 @@ public class VerbindungsAufbau {
                 return false;
            }    
            
-           CDatenbankverbinder dcon = new CDatenbankverbinder(info);
+           ConnectionFactory dcon = new ConnectionFactory(info);
            if(!dcon.verbindungAufbauenServer())
            {
                printer.Print("Server nicht erreichbar!"); 

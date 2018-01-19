@@ -6,7 +6,7 @@
 package MCPdatenbank_standardVerbindung.gui;
 
 import MCPdatenbank_standardVerbindung.datenbank.CConInfo;
-import MCPdatenbank_standardVerbindung.datenbank.CDatenbankverbinder;
+import MCPdatenbank_standardVerbindung.datenbank.ConnectionFactory;
 import MCPdatenbank_standardVerbindung.datenbank.CXmlErsteller;
 import java.io.File;
 import javax.swing.*;
@@ -57,7 +57,7 @@ public class GMcpXmlErsteller extends JFrame {
     private void eventTesteVebindung(){
         CConInfo info  = initCConInfo();
         
-        CDatenbankverbinder con = new CDatenbankverbinder(info);
+        ConnectionFactory con = new ConnectionFactory(info);
         if(con.verbindungAufbauenServer())
         {
             JOptionPane.showMessageDialog(null, "Konnte mich mit Server verbinden!", "Erfolg!", JOptionPane.OK_CANCEL_OPTION);

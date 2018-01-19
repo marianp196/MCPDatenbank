@@ -14,6 +14,8 @@ import java.sql.Statement;
  */
 public interface IConnectionFactory 
 {
-    public Connection GetConnection();
-    public Statement GetStatement();
+    public Connection GetConnection() throws Exception;
+    
+    @Deprecated
+    public Statement GetStatement() throws Exception;
 }
