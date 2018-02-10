@@ -70,14 +70,14 @@ public class SchemaChecker implements ISchemaChecker {
     }
     
     private void checkColumns(Table table) throws Exception {
-        Field[] fields = schemaInfo.GetFields(table.GetTableName());
+        Field[] fieldsFromDatabase = schemaInfo.GetFields(table.GetTableName());
         Field[] targetFields = table.GetFields();
         
-        ArrayList<Field> fieldList = toArrayList(fields);
+        ArrayList<Field> fieldDBList = toArrayList(fieldsFromDatabase);
         
         for(Field field : targetFields)
         {
-            if(fieldList.stream().filter(f -> f.getName().equals(field.getName())).count() == 0)
+            if(fieldDBList.stream().filter(f -> f.getName().equals(field.getName())).count() == 0)
                 createField(table.GetTableName(),field);
         }
     }
@@ -99,10 +99,7 @@ public class SchemaChecker implements ISchemaChecker {
     
     private ISchemaInfo schemaInfo;
     private ISqlBuilder sqlBuilder;
-    private Connection connection;
+    private Connection connection; 
 
-    
-
-  
     
 }

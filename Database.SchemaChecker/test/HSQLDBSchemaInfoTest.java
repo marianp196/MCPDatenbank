@@ -4,23 +4,10 @@
  * and open the template in the editor.
  */
 
-import datenbank.ConnectionInfo;
-import datenbank.Database;
-import datenbank.IDatabase;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import Common.TestBase;
 import java.sql.Statement;
-import java.util.Collection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import commands.common.ISchemaInfo;
 import commands.hsqldb.HSQLDBSchemaInfo;
 import tables.EDataType;
@@ -30,27 +17,11 @@ import tables.Field;
  *
  * @author marian
  */
-public class HSQLDBSchemaInfoTest {
+public class HSQLDBSchemaInfoTest extends TestBase {
 
-    public HSQLDBSchemaInfoTest() throws Exception
-    {
-        ConnectionInfo info = new ConnectionInfo("jdbc:hsqldb:file:./hallo.test", 
-                "SA", "", "org.hsqldb.jdbcDriver");
-        database = new Database(info);
-        connection = database.GetConnection();
-    }
-        
-    @Before
-    public void ClearSchema() throws SQLException
-    {
-        Statement st = connection.createStatement();
-        
-        try {
-            st.execute("drop table test");
-        } catch (SQLException ex) {
-            Logger.getLogger(HSQLDBSchemaInfoTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    public HSQLDBSchemaInfoTest() throws Exception {
+        super();
+    }   
     
     @Test
     public void TableExists_ShouldReturnTrue_IfTableExists() throws Exception
@@ -102,6 +73,5 @@ public class HSQLDBSchemaInfoTest {
         }
     } 
   
-    private IDatabase database;
-    private Connection connection;
+
 }
