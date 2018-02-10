@@ -5,12 +5,13 @@
  */
 package checker;
 
-import datenbank.IDatabase;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Collection;
 import commands.ISchemaInfo;
 import commands.ISqlBuilder;
+import datenbank.IDatabase;
 import tables.Table;
 
 /**
