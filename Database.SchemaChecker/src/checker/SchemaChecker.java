@@ -44,7 +44,10 @@ public class SchemaChecker implements ISchemaChecker {
     @Override
     public void CheckAndCreate() throws Exception 
     {
-        
+        for(Table table : tables)
+        {
+            
+        }
     }
     
     private Collection<Table> tables;
