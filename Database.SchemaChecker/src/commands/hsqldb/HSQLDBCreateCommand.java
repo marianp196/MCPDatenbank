@@ -48,14 +48,17 @@ public class HSQLDBCreateCommand implements ISqlBuilder
     {
         if(primaryKeys.length ==0)
             return "";
-        String result = "";
+        String result = "PRIMARY KEY (:fields)";
+        String fields = "";
 
         for(Field f : primaryKeys)
         {
-            result += "PRIMARY KEY (" + f.getName() + "), ";
+            fields += f.getName() + ", ";
         }
         
-        return letztesKommaAbschneiden(result);
+        fields = letztesKommaAbschneiden(fields);
+        
+        return result.replaceAll(":fields", fields);
     }
     
     private String getFieldListe(Field[] fields)

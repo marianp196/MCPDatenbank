@@ -42,7 +42,7 @@ public class HSQLDBCreateCommandTest {
         fields[1] = new Field("id", EDataType.integer);
         
         String sql = sut.CreateCommand("test", fields);
-        Assert.assertEquals("CREATE TABLE test( f INT Not Null, id INT Not Null , PRIMARY KEY (f), PRIMARY KEY (id) );",sql);
+        Assert.assertEquals("CREATE TABLE test( f INT Not Null, id INT Not Null , PRIMARY KEY (f, id) );",sql);
     }
     
     @Test

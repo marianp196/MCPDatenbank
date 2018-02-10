@@ -77,7 +77,7 @@ public class SchemaChecker implements ISchemaChecker {
         
         for(Field field : targetFields)
         {
-            if(fieldDBList.stream().filter(f -> f.getName().equals(field.getName())).count() == 0)
+            if(fieldDBList.stream().filter(f -> f.getName().equalsIgnoreCase(field.getName())).count() == 0)
                 createField(table.GetTableName(),field);
         }
     }
