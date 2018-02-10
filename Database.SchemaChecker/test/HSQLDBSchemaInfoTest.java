@@ -21,7 +21,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import commands.ISchemaInfo;
+import commands.common.ISchemaInfo;
 import commands.hsqldb.HSQLDBSchemaInfo;
 import tables.EDataType;
 import tables.Field;

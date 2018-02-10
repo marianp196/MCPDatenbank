@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import commands.ISchemaInfo;
+import commands.common.ISchemaInfo;
 import tables.EDataType;
 import tables.Field;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;

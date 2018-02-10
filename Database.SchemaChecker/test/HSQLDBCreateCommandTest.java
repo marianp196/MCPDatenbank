@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import commands.ISqlBuilder;
+import commands.common.ISqlBuilder;
 import commands.hsqldb.HSQLDBCreateCommand;
 import org.junit.Assert;
 import org.junit.Test;

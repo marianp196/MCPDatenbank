@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package commands;
-
-import tables.Field;
+package checker.stringComparer;
 
 /**
  *
  * @author marian
  */
-public interface ISqlBuilder {
-    String CreateCommand(String table, Field[] primaryKeys) throws Exception;
-    String AddCollumnCommand(String table, Field field);  
+public class CaseInsensitive implements IStringComparer{
+
+    @Override
+    public boolean IsEqual(String str0, String str1) {
+        return str0.equalsIgnoreCase(str1);
+    }
+    
 }

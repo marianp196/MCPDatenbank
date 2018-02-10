@@ -6,23 +6,33 @@
 package checker;
 
 
+import checker.stringComparer.IStringComparer;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Collection;
-import commands.ISchemaInfo;
-import commands.ISqlBuilder;
+import commands.common.ISchemaInfo;
+import commands.common.ISqlBuilder;
 import datenbank.IDatabase;
+import java.sql.SQLException;
+import java.sql.Statement;
+import sun.reflect.annotation.AnnotationParser;
+import tables.Field;
 import tables.Table;
-
 /**
  *
  * @author marian
  */
+/*
+ * ToDos
+ * - CaseSensitivität beachten
+ */
 public class SchemaChecker implements ISchemaChecker {
 
-    public SchemaChecker(ISchemaInfo schemaInfo, ISqlBuilder sqlBuilder, IDatabase database) throws Exception {
+    public SchemaChecker(ISchemaInfo schemaInfo, 
+                         ISqlBuilder sqlBuilder, 
+                         IDatabase database) throws Exception {
         this.schemaInfo = schemaInfo;
-        this.sqlBuilder = sqlBuilder;
+        this.sqlBuilder = sqlBuilder;       
         this.connection = database.GetConnection();
         
         tables = new ArrayList<>();
@@ -46,8 +56,43 @@ public class SchemaChecker implements ISchemaChecker {
     {
         for(Table table : tables)
         {
-            
+            if(!schemaInfo.TableExists(table.GetTableName()))
+                createTable(table);
+            checkColumns(table);
         }
+    }
+    
+    private void createTable(Table table) throws SQLException, Exception 
+    {
+        Statement query = connection.createStatement();
+        String sql = sqlBuilder.CreateCommand(table.GetTableName(), table.GetPrimaryKeys());
+        query.execute(sql);
+    }
+    
+    private void checkColumns(Table table) throws Exception {
+        Field[] fields = schemaInfo.GetFields(table.GetTableName());
+        Field[] targetFields = table.GetFields();
+        
+        ArrayList<Field> fieldList = toArrayList(fields);
+        
+        for(Field field : targetFields)
+        {
+            if(fieldList.stream().filter(f -> f.getName().equals(field.getName())).count() == 0)
+                createField(table.GetTableName(),field);
+        }
+    }
+
+    private void createField(String table,Field field) throws SQLException {
+        Statement query = connection.createStatement();
+        String sql = sqlBuilder.AddCollumnCommand(table, field);
+        query.execute(sql);
+    }
+    
+    private <T> ArrayList<T> toArrayList(T[] fields) {
+        ArrayList<T> ar_List = new ArrayList<>();
+        for(T element : fields)
+            ar_List.add(element);
+        return ar_List;
     }
     
     private Collection<Table> tables;
@@ -55,4 +100,9 @@ public class SchemaChecker implements ISchemaChecker {
     private ISchemaInfo schemaInfo;
     private ISqlBuilder sqlBuilder;
     private Connection connection;
+
+    
+
+  
+    
 }

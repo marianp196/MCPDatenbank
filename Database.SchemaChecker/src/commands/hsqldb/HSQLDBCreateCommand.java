@@ -8,7 +8,7 @@ package commands.hsqldb;
 import tables.EDataType;
 import tables.Field;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import commands.ISqlBuilder;
+import commands.common.ISqlBuilder;
 
 /** 
  * @author marian
