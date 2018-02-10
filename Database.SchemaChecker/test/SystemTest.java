@@ -34,7 +34,7 @@ public class SystemTest extends TestBase
         Assert.assertTrue(st.execute("select primKey1, primKey2, hallo from test"));
     }
     
-     @Test
+    @Test
     public void CcheckAndCreate_ShouldCreateFields_IfTableExist() throws Exception
     {
         Table table = createTestTable();
@@ -46,6 +46,18 @@ public class SystemTest extends TestBase
         
         Statement st = database.GetStatement();
         st.execute("select primKey1, primKey2, hallo, varcharFeld300 from test");
+    }
+    
+     @Test
+    public void CcheckAndCreate_ShouldCreateTable_IfOneExistsAllreadyExist() throws Exception
+    {
+        Table table = createTestTable();
+        createTableInDb(table);
+        
+        Table table2 = new Table("test2");
+        table2.AddPrimaryKey(new Field("id", EDataType.integer));
+        createTableInDb(table2);
+        Assert.assertTrue(connection.createStatement().execute("select id  from test2"));
     }
 
     private void createTableInDb(Table table) throws Exception {

@@ -40,6 +40,12 @@ public class TestBase {
         } catch (SQLException ex) {
             Logger.getLogger(TestBase.class.getName()).log(Level.SEVERE, null, ex);
         }
+         
+        try {
+            st.execute("drop table test2");
+        } catch (SQLException ex) {
+            Logger.getLogger(TestBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     protected IDatabase database;
