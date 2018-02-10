@@ -16,7 +16,7 @@ import datenbank.IDatabase;
 import java.sql.SQLException;
 import java.sql.Statement;
 import sun.reflect.annotation.AnnotationParser;
-import tables.Field;
+import tables.field.Field;
 import tables.Table;
 /**
  *

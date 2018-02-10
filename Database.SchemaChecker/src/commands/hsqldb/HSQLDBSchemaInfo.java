@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import commands.common.ISchemaInfo;
-import tables.EDataType;
-import tables.Field;
+import tables.field.EDataType;
+import tables.field.Field;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**

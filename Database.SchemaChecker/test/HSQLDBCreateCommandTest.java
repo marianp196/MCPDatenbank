@@ -8,8 +8,8 @@ import commands.common.ISqlBuilder;
 import commands.hsqldb.HSQLDBCreateCommand;
 import org.junit.Assert;
 import org.junit.Test;
-import tables.EDataType;
-import tables.Field;
+import tables.field.EDataType;
+import tables.field.Field;
 
 /**
  *

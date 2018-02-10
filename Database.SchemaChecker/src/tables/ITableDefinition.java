@@ -9,6 +9,6 @@ package tables;
  *
  * @author marian
  */
-public enum EDataType {
-    integer, doubl, charString, bigInt
+public interface ITableDefinition {
+    Table GetTable();
 }

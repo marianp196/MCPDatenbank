@@ -1,5 +1,7 @@
 package tables;
 
+import tables.field.Field;
+import tables.field.EDataType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

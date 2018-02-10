@@ -10,8 +10,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import commands.common.ISchemaInfo;
 import commands.hsqldb.HSQLDBSchemaInfo;
-import tables.EDataType;
-import tables.Field;
+import tables.field.EDataType;
+import tables.field.Field;
 
 /**
  *

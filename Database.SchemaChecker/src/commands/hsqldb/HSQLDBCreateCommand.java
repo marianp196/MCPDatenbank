@@ -5,8 +5,8 @@
  */
 package commands.hsqldb;
 
-import tables.EDataType;
-import tables.Field;
+import tables.field.EDataType;
+import tables.field.Field;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import commands.common.ISqlBuilder;
 

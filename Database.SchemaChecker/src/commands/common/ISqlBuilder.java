@@ -5,7 +5,7 @@
  */
 package commands.common;
 
-import tables.Field;
+import tables.field.Field;
 
 /**
  *

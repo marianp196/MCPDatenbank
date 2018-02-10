@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package commands.common;
-
-import tables.field.Field;
+package tables.field;
 
 /**
  *
  * @author marian
  */
-public interface ISchemaInfo {
-    boolean TableExists(String name) throws Exception;
-    Field[] GetFields(String name) throws Exception;
+public enum EDataType {
+    integer, doubl, charString, bigInt
 }

@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import Common.TestBase;
 import checker.ISchemaChecker;
 import java.sql.Statement;
 import org.junit.Assert;
 import org.junit.Test;
-import tables.EDataType;
-import tables.Field;
+import tables.field.EDataType;
+import tables.field.Field;
 import tables.Table;
 
 /**
