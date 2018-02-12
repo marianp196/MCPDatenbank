@@ -1,4 +1,4 @@
-package typeInfo;
+package databaseDto.typeInfo;
 
 
 import java.lang.reflect.Field;
