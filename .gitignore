@@ -5,3 +5,4 @@ dist/
 nbdist/
 .nb-gradle/
 /Database.SchemaChecker/nbproject/private/
+/Database.Jentity/nbproject/private/

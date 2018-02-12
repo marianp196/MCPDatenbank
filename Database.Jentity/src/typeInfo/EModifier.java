@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tables;
+package typeInfo;
 
 /**
  *
  * @author marian
  */
-public interface ITableDefinition {
-    Table GetTable() throws Exception;
+public enum EModifier {
+    Public, Private        
 }

@@ -67,6 +67,7 @@ public class HSQLDBSchemaInfo implements ISchemaInfo{
         String sql = "select * from :name";
         sql = sql.replaceAll(":name", name);
         ResultSet rs = con.createStatement().executeQuery(sql);
+        
         return rs;
     }
     
