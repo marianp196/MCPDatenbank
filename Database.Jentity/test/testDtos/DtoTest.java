@@ -12,6 +12,7 @@ import annotations.SQLFieldName;
  *
  * @author marian
  */
+
 public class DtoTest {
     //Fields
     public String Field1;    

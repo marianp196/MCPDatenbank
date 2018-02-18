@@ -12,6 +12,10 @@ import java.sql.SQLException;
  *
  * @author marian
  */
+
+/*
+Schöner wäre wohl ein Interface, das den SqlString zurück gibt
+*/
 public interface ISelectSql {
     ResultSet SelectAll(String name)  throws Exception;
 }

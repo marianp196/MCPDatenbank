@@ -46,8 +46,10 @@ public class Jentity implements IJentity{
                 DtoSqlField field = getSqlFieldFromObjectFieldList(fields, sqlFieldName);
                 if(field == null)
                     continue;
-                initField(resultSet, sqlFieldName, field, dto);           
+                initField(resultSet, sqlFieldName, field, dto); 
+                
             }
+            result.add(dto);
         }
         return result;
     }
