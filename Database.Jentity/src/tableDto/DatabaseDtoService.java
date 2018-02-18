@@ -21,10 +21,19 @@ import java.util.stream.Collectors;
  */
 public class DatabaseDtoService implements IDatabaseDtoSqlService{
 
+     @Override
+    public <TDto> Collection<DtoSqlField> GetSqlFields(Class<TDto> type) throws Exception {
+        return getFields(type);
+    }
+    
     @Override
     public <TDto>Collection<DtoSqlField> GetSqlFields(TDto dto) throws Exception 
     {
         Class<TDto> type = (Class<TDto>)dto.getClass();        
+        return getFields(type);
+    }
+
+    private <TDto> Collection<DtoSqlField> getFields(Class<TDto> type) throws Exception {
         TypeInfo<TDto> typeInfo = new TypeInfo<>(type);
         
         Collection<Field> fields = typeInfo.GetPublicFields();
@@ -73,6 +82,7 @@ public class DatabaseDtoService implements IDatabaseDtoSqlService{
         
         return field.getAnnotation(IgnoreField.class) != null;
     }
+  
    
 }
 
