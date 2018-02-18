@@ -1,4 +1,4 @@
-package databaseDto.typeInfo;
+package tableDto.typeInfo;
 
 
 import java.lang.reflect.Field;
@@ -60,9 +60,9 @@ public class TypeInfo<T> {
      private int convertEmumInt(EModifier m)
      {
          if(m == EModifier.Public)
-             return 2;
-         else if(m == EModifier.Private)
              return 1;
+         else if(m == EModifier.Private)
+             return 2;
          else 
              throw new NotImplementedException();                
      }

@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package databaseDto.typeInfo;
+package tableDto;
+
+import java.util.Collection;
 
 /**
  *
  * @author marian
  */
-public enum EModifier {
-    Public, Private        
+public interface IDatabaseDtoSqlService {
+    <TDto> Collection<DtoSqlField> GetSqlFields(TDto dto) throws Exception;
 }
