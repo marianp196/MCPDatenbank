@@ -23,6 +23,7 @@ public class JentityFactory
     {
         ISelectSql sqlSelect = new SelectSql(database);
         IDatabaseDtoSqlService databaseDtoSqlService = new DatabaseDtoService();
+        
         return new Jentity(sqlSelect, databaseDtoSqlService);
     }
 }

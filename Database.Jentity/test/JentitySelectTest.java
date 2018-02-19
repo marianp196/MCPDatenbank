@@ -76,7 +76,6 @@ public class JentitySelectTest {
         long time = System.currentTimeMillis();
         Collection<JentitySelectDto> result = sut.Select("test", JentitySelectDto.class);
         Assert.assertEquals(3000, result.size());
-        System.out.println("time");
         Assert.assertTrue(System.currentTimeMillis() - time < 1000);
     }
     

@@ -32,7 +32,7 @@ public class HSQLDBSchemaInfo implements ISchemaInfo{
     @Override
     public boolean TableExists(String name) throws Exception
     {   //Irgendwie alles unschön
-        String sql = "SELECT * FROM :name";
+        String sql = "SELECT top 1 * FROM :name";
         
         sql = sql.replaceAll(":name", name);
         
@@ -64,7 +64,7 @@ public class HSQLDBSchemaInfo implements ISchemaInfo{
     }
 
     private ResultSet getResultSet(String name) throws SQLException {
-        String sql = "select * from :name";
+        String sql = "select top 1 * from :name";
         sql = sql.replaceAll(":name", name);
         ResultSet rs = con.createStatement().executeQuery(sql);
         

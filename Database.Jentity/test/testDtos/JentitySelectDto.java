@@ -19,5 +19,5 @@ public class JentitySelectDto {
     
     public double zahl;
     
-   public long zahlGross;
+    public long zahlGross;
 }
